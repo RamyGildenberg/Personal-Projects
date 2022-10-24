@@ -1,0 +1,133 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+       ResizeMode="NoResize" 
+
+        
+
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        xmlns:viewmodel="clr-namespace:WpfApp1.ViewModel"
+        mc:Ignorable="d"
+        Title="Scodix Ultra VersionInfo Password Generator -ver 3.1" Height="663.299" Width="450.668"
+        Background="Gray">
+    <Window.DataContext>
+        <viewmodel:MainViewModel/>
+    </Window.DataContext>
+    <DockPanel Name="containerCanvas" LastChildFill="True" >
+
+        <!--DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"-->
+        <Grid  Margin="0,0,2,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" MinWidth="138"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+
+
+
+
+
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.Column="0" Grid.Row="0" Margin="4,4,0,4" Text="{Binding Space}" HorizontalAlignment="Left" FontWeight="Bold" Width="0"/>
+
+            <Label Grid.Column="0" Grid.Row="1" HorizontalAlignment="left" VerticalAlignment="Top" Content="Serial Number (SN):" FontWeight="Bold"  Foreground="White" Width="Auto" x:Name="serialNumberL" AutomationProperties.AutomationId="SerialNumber_L"/>
+            <!-- UpdateSourceTrigger=PropertyChanged makes sure that changes in the TextBoxes are immediately applied to the model. -->
+            <TextBox Grid.Row="1" Margin="66,5,0,10" Text="{Binding serialNumber, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" Grid.Column="1" x:Name="serialNumberTb" AutomationProperties.AutomationId="SerialNamber_Tb"  />
+
+            <Label Grid.Column="0" Grid.Row="2" HorizontalAlignment="left" VerticalAlignment="Top" Content="Windows Product ID:" FontWeight="Bold"  Foreground="White" Width="Auto" x:Name="WindowsProductID_L" AutomationProperties.AutomationId="WindowsProductID_L"/>
+            <TextBox Grid.Row="2" Margin="66,5,0,10" Text="{Binding WindowsProductID, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left"  Width="200" Grid.Column="1" x:Name="WindowsProductID_Tb" AutomationProperties.AutomationId="WindowsProductID_Tb"/>
+
+            <Label Grid.Column="0" Grid.Row="3"  Content="CSE Name:" HorizontalAlignment="left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Width="Auto" x:Name="CSEname_L" AutomationProperties.AutomationId="CSEname_L"/>
+            <TextBox Grid.Row="3" Margin="66,7,0,8" Text="{Binding CseName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" Grid.Column="1" x:Name="CSEname_Tb" AutomationProperties.AutomationId="CSEname_Tb"/>
+
+            <Label Grid.Column="0" Grid.Row="4"  Content="CSE IL Name:" HorizontalAlignment="left" VerticalAlignment="Top" FontWeight="Bold" Foreground="White" Width="Auto" x:Name="SCEilName_L" AutomationProperties.AutomationId="SCEilName_L"/>
+            <TextBox Grid.Row="4" Margin="66,5,0,14" Text="{Binding CseILName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" Grid.Column="1" x:Name="SCEilName_Tb" AutomationProperties.AutomationId="SCEilName_Tb"/>
+
+            <Label Grid.Column="0" Grid.Row="5" HorizontalAlignment="left" VerticalAlignment="Top" Content="Service Call Number:"  FontWeight="Bold" Foreground="White" Width="Auto" x:Name="ServiceCallNum_L" AutomationProperties.AutomationId="ServiceCallNum_L"/>
+            <TextBox Grid.Row="5" Margin="66,5,0,13" Text="{Binding ServiceCallNum, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" Grid.Column="1" x:Name="ServiceCallNum_Tb" AutomationProperties.AutomationId="ServiceCallNum_Tb"/>
+
+            <Label Grid.Column="0" Grid.Row="6" HorizontalAlignment="left" VerticalAlignment="Top" Content="Customer Name:"  FontWeight="Bold" Foreground="White" Width="Auto" x:Name="CustomerName_L" AutomationProperties.AutomationId="CustomerName_L"/>
+            <TextBox Grid.Row="6" Margin="66,5,0,37" Text="{Binding CustomerName, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Width="200" Grid.Column="1" x:Name="CustomerName_Tb" AutomationProperties.AutomationId="CustomerName_Tb"/>
+
+            <Label Grid.Column="0" Grid.Row="7" HorizontalAlignment="left" VerticalAlignment="Center" Content="Machine Type:" FontSize="15" FontWeight="Bold" Foreground="White" Width="Auto" x:Name="MachineType_L" AutomationProperties.AutomationId="MachineType_L" />
+            <RadioButton Grid.Column="0" Grid.Row="8" GroupName="MachineType" Content="Ultra 101" 
+                         Command="{Binding MTrbCommandEx}" CommandParameter="1" Foreground="White"  AutomationProperties.AutomationId="Ultra101_Rb" HorizontalAlignment="left" 
+                         VerticalAlignment="Center" Margin="2,0,0,0" />
+            <RadioButton Grid.Column="0" Grid.Row="9" GroupName="MachineType" Content="Ultra Pro" 
+                         Command="{Binding MTrbCommandEx}" CommandParameter="2" HorizontalAlignment="left" VerticalAlignment="Center" Foreground="White" x:Name="UltraPro_Rb" 
+                         AutomationProperties.AutomationId="UltraPro_Rb" Margin="2,0,0,0"/>
+            <RadioButton Grid.Column="0" Grid.Row="10" GroupName="MachineType" Content="Ultra Pro Proffesional (Based on Ultra 2 hardware)" 
+                         Command="{Binding MTrbCommandEx}" CommandParameter="3" Grid.ColumnSpan="2" HorizontalAlignment="left" 
+                         VerticalAlignment="Center" Foreground="White"  x:Name="UltraProProff_Rb" AutomationProperties.AutomationId="UltraProProff_Rb" Margin="2,0,0,0"/>
+            <RadioButton Grid.Column="0" Grid.Row="11" GroupName="MachineType" Content="Ultra 2 Pro" 
+                         Command="{Binding MTrbCommandEx}" CommandParameter="4" HorizontalAlignment="left" 
+                         VerticalAlignment="Center"  Foreground="White"  x:Name="Ultra2Pro_Rb" AutomationProperties.AutomationId="Ultra2Pro_Rb" Margin="2,0,0,0"/>
+            <RadioButton Grid.Column="0" Grid.Row="12" GroupName="MachineType" Content="Ultra 202"  
+                         Command="{Binding MTrbCommandEx}" CommandParameter="5"  HorizontalAlignment="left"
+                         VerticalAlignment="Center" Foreground="White"  x:Name="Ultra202_Rb" AutomationProperties.AutomationId="Ultra202_Rb" Margin="2,0,0,0"/>
+            <TextBlock Grid.Column="0" Grid.Row="13" Margin="4,4,0,4" Text="{Binding Space}" HorizontalAlignment="Left" FontWeight="Bold" Width="0" Foreground="White"/>
+
+            <CheckBox Grid.Column="0" Grid.Row="15" Content="Foiler" IsChecked="{Binding Foiler}" Grid.ColumnSpan="2" Margin="6,0,326,0" Foreground="White" Width="Auto" x:Name="Foiler_Cb" AutomationProperties.AutomationId="Foiler_Cb"/>
+            <Label Grid.Row="13" Margin="0,7,218,54" Content="Foiler number" HorizontalAlignment="Right" FontSize="10" Width="80" Grid.RowSpan="3" Foreground="White" Grid.Column="1" x:Name="FoilerNumber_L" AutomationProperties.AutomationId="FoilerNumber_L"/>
+            <TextBox Grid.Row="15" Margin="0,0,0,35" Text="{Binding FoilerNumber, UpdateSourceTrigger=PropertyChanged, Delay=1000}" HorizontalAlignment="Left"   Width="200" Grid.Column="1" x:Name="FoilerNumber_Tb" AutomationProperties.AutomationId="FoilerNumber_Tb"/>
+            <CheckBox Grid.Column="1" Grid.Row="15" Content="C&amp;C" IsChecked="{Binding CnC}" HorizontalAlignment="right" Margin="0,0,35,26" Foreground="Black" Width="44" x:Name="CnC_Cb" AutomationProperties.AutomationId="CnC_Cb" />
+
+            <CheckBox Grid.Column="0" Grid.Row="15" Content="Optional Polymer" IsChecked="{Binding OptionalPolymerCB}" Margin="6,37,11,0" Foreground="White" Width="Auto" x:Name="OptionalPolymer_Cb" AutomationProperties.AutomationId="OptionalPolymer_Cb"/>
+            <TextBox Grid.Row="15" Margin="0,37,0,0" Text="{Binding OptionalPolymer, UpdateSourceTrigger=PropertyChanged, Delay=1000}" HorizontalAlignment="Left" Width="200" Grid.Column="1" x:Name="OptionalPolymer_Tb" AutomationProperties.AutomationId="OptionalPolymer_Tb"/>
+
+
+            <Label Grid.Column="0" Grid.Row="16" Margin="0,7,0,-31" Content="Print Modes:" HorizontalAlignment="left"  Foreground="White" Width="Auto" x:Name="PrintModes_L" AutomationProperties.AutomationId="OptionalPolymer_Tb"/>
+            <CheckBox Grid.Column="1" Grid.Row="16" Content="Brail" IsChecked="{Binding Brail}" Margin="0,13,194,-27" Foreground="White" Width="Auto" x:Name="Brail_Cb" AutomationProperties.AutomationId="Brail_Cb" Click="Brail_Cb_Click"/>
+            <CheckBox Grid.Column="1" Grid.Row="16" Content="Crystal" IsChecked="{Binding Crystal}" Margin="85,13,109,-27" Foreground="White" Width="Auto" x:Name="Crystal_Cb" AutomationProperties.AutomationId="Crystal_Cb"/>
+
+            <CheckBox Grid.Row="17" Content="Barcode" IsChecked="{Binding Barcode}" Margin="4,37,328,-51" Foreground="White" Width="Auto" Grid.ColumnSpan="2" x:Name="Barcode_Cb" AutomationProperties.AutomationId="Barcode_Cb"/>
+
+            <Label Grid.Column="0" Grid.Row="19" Margin="2,55,0,-90" Content="Scodix Studio" HorizontalAlignment="left"  Foreground="White" Width="Auto" FontWeight="Bold" FontSize="15" x:Name="ScodixStudio_L" AutomationProperties.AutomationId="ScodixStudio_L"/>
+
+            <RadioButton Grid.Column="0" Grid.Row="16" GroupName="ScodixStudio" Content="None" Command="{Binding SSrbCommandEx}" CommandParameter="6"
+                         Grid.ColumnSpan="2" Margin="4,96,177,-111" Foreground="White" Width="auto" x:Name="None_Rb" AutomationProperties.AutomationId="None_Rb"/>
+            <RadioButton Grid.Column="0" Grid.Row="16" GroupName="ScodixStudio" Content="Station" Command="{Binding SSrbCommandEx}" CommandParameter="7"
+                         Grid.ColumnSpan="2" Margin="116,96,65,-111" Foreground="White" Width="auto" x:Name="Station_Rb" AutomationProperties.AutomationId="Station_Rb"/>
+            <RadioButton Grid.Column="1" Grid.Row="16" GroupName="ScodixStudio" Content="W2P" Command="{Binding SSrbCommandEx}" CommandParameter="7"
+                         Margin="85,96,-42,-111" Foreground="White" Width="auto" x:Name="W2P_Rb" AutomationProperties.AutomationId="W2P_Rb"/>
+            <RadioButton Grid.Column="1" Grid.Row="16" GroupName="ScodixStudio" Content="W2P Customize" Command="{Binding SSrbCommandEx}" CommandParameter="8"
+                         Margin="173,96,-130,-111" Foreground="White" Width="auto" x:Name="W2Pcustomize_Rb" AutomationProperties.AutomationId="W2Pcustomize_Rb"/>
+
+            <CheckBox Grid.Row="16" Content="Win 10" IsChecked="{Binding Win10}" Margin="6,131,326,-145" Foreground="White" Width="Auto" Grid.ColumnSpan="2"  x:Name="Win10_Cb" AutomationProperties.AutomationId="Win10_Cb"/>
+
+            <Button Grid.Row="16" Background="Beige" Foreground="Black" FontSize="10" Margin="200,131,22,-153" Grid.Column="1" x:Name="GetPasswordButton"  AutomationProperties.AutomationId="GetPasswordButton" Command="{Binding ClickCommand}">Get Password</Button>
+            <Button x:Name="ClearButton" Grid.Row="16" Background="Beige" Foreground="Black" FontSize="10" Margin="151,131,110,-153" Grid.Column="1"   AutomationProperties.AutomationId="ClearButton" Command="{Binding ClickClearCommand}">Clear</Button>
+
+
+
+            
+
+
+
+
+
+
+        </Grid>
+
+    </DockPanel>
+</Window>
